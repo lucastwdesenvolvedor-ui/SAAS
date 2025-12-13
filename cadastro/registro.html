@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gifthub - Register Page</title>
+</head>
+<body>
+        <h1>Welcome to Gifthub</h1>
+    <form action="/register" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="date">date of birth</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Register</button>
+        <p>or if you have a account</p>
+        <button type="button" onclick="window.location.href='/login'">Login</button>
+    </form>
+
+</body>
+</html>
