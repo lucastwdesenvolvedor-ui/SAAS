@@ -2,32 +2,32 @@ import express from 'express';
 import path from 'path';
 import dotenv from "dotenv";
 
+
+
 dotenv.config();
+
 const app = express();
 const port = 5500;
 
-function checkDevKey(req, res, next) {
-    const key = req.headers.authorization;
 
-    if (!key) {
-        return res.status(401).json({ error: "Chave não enviada." });
-    }
+let produtos = [
+  { nome: "Camisa", preco: 50 },
+  { nome: "Tênis", preco: 200 }
+];
 
-    if (key !== process.env.DEV_KEY) {
-        return res.status(403).json({ error: "Acesso negado." });
-    }
 
-    next();
-}
+app.use(express.json());
+app.use(express.static("public"));
 
-// 🔐 Rota protegida — apenas dev com chave pode acessar
-app.get("/api/dev/secret452t943t0243nt2p4t243n2c402t8746t30", checkDevKey, (req, res) => {
-    res.json({ msg: "Acesso liberado apenas para DEV." });
-    res.sendFile(path.resolve('inde.html'))
+
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve("index.html"));
 });
-
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve('index.html'))
+app.get("/api/produtos", (req, res) => {
+  res.json(produtos);
+});
+app.get('/i', (req, res) => {
+    res.sendFile(path.resolve('intro.html'))
 }); 
 
 app.get('/login', (req, res) => {
@@ -38,3 +38,5 @@ app.get('/register', (req, res) => {
 });
 console.log(`Server running at http://localhost:${port}/`);
 app.listen(port);
+
+
