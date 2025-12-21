@@ -3,11 +3,11 @@ import path from 'path';
 import dotenv from "dotenv";
 
 
-
 dotenv.config();
 
 const app = express();
-const port = 5500;
+
+const port = process.env.PORT;
 
 
 let produtos = [
@@ -20,23 +20,25 @@ app.use(express.json());
 app.use(express.static("public"));
 
 
+
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve("index.html"));
+  res.sendFile(path.resolve("/index.html"));
 });
 app.get("/api/produtos", (req, res) => {
   res.json(produtos);
 });
 app.get('/i', (req, res) => {
-    res.sendFile(path.resolve('intro.html'))
+    res.sendFile(path.resolve('public/intro.html'))
 }); 
 
 app.get('/login', (req, res) => {
-    res.sendFile(path.resolve('cadastro/login.html'))
+    res.sendFile(path.resolve('public/cadastro/login.html'))
 });
 app.get('/register', (req, res) => {
-    res.sendFile(path.resolve('cadastro/registro.html'))
+    res.sendFile(path.resolve('public/cadastro/registro.html'))
 });
 console.log(`Server running at http://localhost:${port}/`);
+
 app.listen(port);
 
 

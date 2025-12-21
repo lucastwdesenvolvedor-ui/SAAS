@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao gift
+        </h1>
+        <button type="button" id="btn-produtos" class="btn btn-outline-success">+ Adicionar Produto</button></header>
+        <div class="add" id="add" style="display: none;">
+            <fieldset>
+            <input type="text" id="nome" placeholder="Nome do Produto" required>
+            <input type="text" id="desc" placeholder="Descreva o Produto" required>
+            <input type="text" id="img" placeholder="Link da Imagem" required>
+            <input type="date" id="dataExpiracao" placeholder="Data de Expiração (AAAA-MM-DD)" required>
+            <input type="number" id="preco" placeholder="Preço do Produto" required>
+            <input type="submit" id="btn-add" value="Adicionar Produto" class="btn btn-success">
+        </fieldset>
+        </div>
+    <main>
+<h1>Produtos</h1>
+<div id="container"></div>
+    </main>
+<script src="/js/script.js"></script>
+</body>
+</html>

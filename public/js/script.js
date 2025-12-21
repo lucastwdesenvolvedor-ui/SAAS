@@ -12,3 +12,7 @@ console.log(produtos);
 }
 
 carregarProdutos();
+
+document.getElementById("btn-produtos").addEventListener("click", () => {
+  document.getElementById("add").style.display = "block";
+});
